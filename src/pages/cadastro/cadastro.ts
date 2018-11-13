@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetalhePage } from '../detalhe/detalhe';
+
 
 /**
  * Generated class for the CadastroPage page.
@@ -28,13 +30,13 @@ export class CadastroPage {
   salvar = () =>{
     this.navCtrl.push(DetalhePage, {
       nome: this.nome,
-      endereco: this.rua,
+      rua: this.rua,
       numero: this.numero,
-      bairro: this.numero,
+      bairro: this.bairro,
       cidade: this.cidade
     });
   }
-  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroPage');
