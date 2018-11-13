@@ -25,6 +25,17 @@ export class CadastroPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  salvar = () =>{
+    this.navCtrl.push(DetalhePage, {
+      nome: this.nome,
+      endereco: this.rua,
+      numero: this.numero,
+      bairro: this.numero,
+      cidade: this.cidade
+    });
+  }
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroPage');
   }
