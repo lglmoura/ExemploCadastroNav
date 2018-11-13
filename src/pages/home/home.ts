@@ -11,4 +11,8 @@ export class HomePage {
 
   }
 
+  irCadastro = () => {
+    this.navCtrl.push("CadastroPage");
+  }
+
 }
