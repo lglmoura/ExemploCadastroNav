@@ -14,5 +14,8 @@ export class HomePage {
   irCadastro = () => {
     this.navCtrl.push("CadastroPage");
   }
+  irCadastroFB = () => {
+    //this.navCtrl.push("CadastroFBPage");
+  }
 
 }
