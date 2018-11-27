@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DetalhePageModule } from '../pages/detalhe/detalhe.module';
+import { CadastroFbPageModule } from '../pages/cadastro-fb/cadastro-fb.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DetalhePageModule } from '../pages/detalhe/detalhe.module';
   imports: [
     BrowserModule,
     DetalhePageModule,
+    CadastroFbPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
