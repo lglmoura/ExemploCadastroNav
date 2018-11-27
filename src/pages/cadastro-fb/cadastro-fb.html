@@ -23,8 +23,9 @@
 
       <ion-item>
         <ion-label stacked>CPF</ion-label>
-        <ion-input type="text" formControlName="cpf"></ion-input>
-      </ion-item>
+        <ion-input type="text" formControlName="cpf" [ngClass]="{'invalida': !cadastro.get('cpf').valid && cadastro.get('cpf').dirty}"></ion-input>
+        </ion-item>
+        <p *ngIf="cadastro.get('cpf').errors && cadastro.get('cpf').errors.invalido">Cpf Invalido</p>
 
       <ion-item>
         <ion-label stacked>Senha</ion-label>

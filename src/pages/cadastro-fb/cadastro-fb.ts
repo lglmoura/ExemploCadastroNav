@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms'
+import {CpfValidator} from '../../validator/cpf'
 
 /**
  * Generated class for the CadastroFbPage page.
@@ -24,7 +25,7 @@ export class CadastroFbPage {
     this.cadastro = fb.group({
       email: new FormControl(null,Validators.compose([Validators.email,
                                                       Validators.required])),
-      cpf: new FormControl(null),
+      cpf: new FormControl(null,Validators.compose([Validators.required, CpfValidator.cpfValido])),
       senha: new FormControl(null,Validators.compose([Validators.required,
                                                       Validators.minLength(6),
                                                       Validators.maxLength(20)]))   
@@ -34,7 +35,12 @@ export class CadastroFbPage {
   }
 
   salvar = () => {
+
     console.log(this.cadastro.value);
+
+    let { email, cpf, senha } = this.cadastro.value;
+    //console.log(this.cadastro.controls);
+    console.log("Senha: => "+senha);
   }
 
   ionViewDidLoad() {
