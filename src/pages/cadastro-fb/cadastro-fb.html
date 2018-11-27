@@ -17,16 +17,23 @@
     <form [formGroup]='cadastro'>
       <ion-item>
         <ion-label stacked>Email</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
+        <ion-input type="email" formControlName="email" [ngClass]="{'invalida': !cadastro.get('email').valid && cadastro.get('email').dirty}"></ion-input>
       </ion-item>
+      <p *ngIf="!cadastro.get('email').valid && cadastro.get('email').dirty">Preencha o Campo Corretamente</p>
+
       <ion-item>
         <ion-label stacked>CPF</ion-label>
         <ion-input type="text" formControlName="cpf"></ion-input>
       </ion-item>
+
       <ion-item>
         <ion-label stacked>Senha</ion-label>
-        <ion-input type="password" formControlName="senha"></ion-input>
+        <ion-input type="password" formControlName="senha" [ngClass]="{'invalida': !cadastro.get('senha').valid && cadastro.get('senha').dirty}"></ion-input>
       </ion-item>
+      <p *ngIf="cadastro.get('senha').errors && cadastro.get('senha').errors.required">Esse campo é obrigatório</p>
+      <p *ngIf="cadastro.get('senha').errors && cadastro.get('senha').errors.minlength">Minimo de 6 caracteres</p>
+      <p *ngIf="cadastro.get('senha').errors && cadastro.get('senha').errors.maxlength">Maximo de 20 Caracteres</p>
+
       <div>
         <button ion-button round (click)="salvar()">Salvar</button>
       </div>

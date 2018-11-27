@@ -22,13 +22,17 @@ export class CadastroFbPage {
               public fb : FormBuilder) {
 
     this.cadastro = fb.group({
-      email: new FormControl(null),
+      email: new FormControl(null,Validators.compose([Validators.email,
+                                                      Validators.required])),
       cpf: new FormControl(null),
-      senha: new FormControl(null)   
+      senha: new FormControl(null,Validators.compose([Validators.required,
+                                                      Validators.minLength(6),
+                                                      Validators.maxLength(20)]))   
     });            
 
 
   }
+
   salvar = () => {
     console.log(this.cadastro.value);
   }
